@@ -1,3 +1,53 @@
+var btn = document.getElementById('generate');
+
+
+var length;
+var upper;
+var lower;
+var numeric;
+var character;
+var charset = "";
+
+btn.onclick = function(writePassword) 
+{
+  var retVal="";
+    length=prompt("");
+       /*//choose a length
+
+       if (promptLength >= 8 && promptLength <= 128) {
+        generatePassword ();
+              }
+            else {
+              window.alert("Please select a valid length.");
+            }*/
+    lower = confirm ("");
+    upper = confirm ("");
+    numeric = confirm ("");
+    special = confirm ("");
+
+
+if (lower === true ) {
+  charset += "abcdefghijklmnopqrstuvwxyz";
+}
+
+//do the smae if statements for each
+
+for (var i = 0, n = charset.length; i < length; ++i) {
+  retVal += charset.charAt(Math.floor(Math.random() * n));
+}
+
+document.getElementById("password").innerHTML=retVal;
+console.log(retVal)
+}
+
+var generateBtn = document.querySelector("#generate");
+
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("password");
+
+  passwordText.value = password;
+}
 
 /*GIVEN I need a new, secure password
 WHEN I click the button to generate a password
@@ -24,6 +74,7 @@ THEN the password is either displayed in an alert or written to the page*/
 // };
 
 // Get references to the #generate element
+/*
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -53,9 +104,29 @@ generatePassword ();
 
 };
 
-var generatePassword = function() {
-  
-}
+// function generatePassword(passwordLength) {
+//   var numberChars = "0123456789";
+//   var upperChars = "QWERTYUIOPASDFGHJKLZXCVBNM";
+//   var lowerChars = "qwertyuiopasdfghjklzxcvbnm";
+//   var specicalCharacters = ["!","@","#","%","$","&","*","=","+","-"];
+//   var allChars = numberChars + upperChars + lowerChars + specicalCharacters;
+//   var randPasswordArray = Array(passwordLength);
+//   randPasswordArray[0] = numberChars;
+//   randPasswordArray[1] = upperChars;
+//   randPasswordArray[2] = lowerChars;
+//   randCharacterArray[3] = specialCharacters
+
+// }
+
+// function randomArray(array) {
+//   for (var i = array.length - 1; i > 0; i-- ) {
+//     var j = Math.floor(Math.random() * (i + 1 ));
+//     var temp = array[i];
+//     array[i] = array[j]
+//     array[j] = temp;
+//   }
+//   return array;
+// }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -166,5 +237,5 @@ console.log(passwordCombination);
           // query selector */
 
           //run function
-writePassword();
+//writePassword();
 
