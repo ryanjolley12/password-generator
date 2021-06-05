@@ -1,3 +1,5 @@
+//I worked with Dana on this code in a study group. 
+
 var btn = document.getElementById('generate');
 
 
@@ -11,7 +13,7 @@ var charset = "";
 btn.onclick = function(writePassword) 
 {
   var retVal="";
-    length=prompt("");
+    length=prompt("Choose a length. Passwords must be between 8-128 characters");
        /*//choose a length
 
        if (promptLength >= 8 && promptLength <= 128) {
@@ -20,21 +22,32 @@ btn.onclick = function(writePassword)
             else {
               window.alert("Please select a valid length.");
             }*/
-    lower = confirm ("");
-    upper = confirm ("");
-    numeric = confirm ("");
-    special = confirm ("");
+    lower = confirm ("Do you want to include lowercase letters?");
+    upper = confirm ("Do you want to include uppercase letters?");
+    numeric = confirm ("Do you want to include numbers?");
+    special = confirm ("Do you want to include special characters?");
 
 
 if (lower === true ) {
   charset += "abcdefghijklmnopqrstuvwxyz";
 }
 
-//do the smae if statements for each
+if (lower === true ) {
+  charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+}
+
+if (lower === true ) {
+  charset += "123456789";
+}
+
+if (lower === true ) {
+  charset += "!@#$%^&*-+_=";
+}
 
 for (var i = 0, n = charset.length; i < length; ++i) {
   retVal += charset.charAt(Math.floor(Math.random() * n));
 }
+
 
 document.getElementById("password").innerHTML=retVal;
 console.log(retVal)
